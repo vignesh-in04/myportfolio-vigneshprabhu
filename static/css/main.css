@@ -50,7 +50,7 @@ h1 {
 }
 
 header p {
-  font-size: 2.2rem;
+  font-size: 1rem;
   color: var(--secondary-color);
   animation: slideInFromBottom 1s ease-out;
 }
@@ -292,19 +292,19 @@ body::before {
 #profiles {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Allows items to wrap if the screen is too small */
+  flex-wrap: wrap; 
   margin-top: 20px;
 }
 
 #profiles a {
-  margin: 10px; /* Spacing between links */
+  margin: 10px; 
   background-color: var(--primary-color);
   color: var(--background-color);
   padding: 0px 15px;
   border-radius: 20px;
   text-decoration: none;
   transition: all 0.3s ease;
-  animation: fadeIn 0.5s ease-out forwards; /* Add fade-in animation */
+  animation: fadeIn 0.5s ease-out forwards; 
 }
 
 #profiles a:hover {
