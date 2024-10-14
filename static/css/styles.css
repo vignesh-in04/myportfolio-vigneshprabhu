@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:300,400&family=Source+Code+Pro&display=swap');
+
+:root {
+  --bg-color: #1a1a1a;
+  --text-color: #00ff7f;
+  --button-color: #4CAF50;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+              linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.1;
+  animation: backgroundShift 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0 0, 30px 30px; }
+  100% { background-position: 60px 60px, 90px 90px; }
+}
+
+#first-text, #second-text, .portfolio-button {
+  position: relative;
+  z-index: 1;
+}
+
+#first-text {
+  animation: fadeInUp 1s ease-out forwards;
+  font-size: 50px;
+  font-family:cursive;
+}
+
+#second-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  font-size: 45px;
+  font-family:cursive;
+  animation: typing 3s steps(30, end);
+}
+
+#second-text::after {
+  content: '';
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+.portfolio-button {
+  margin-top: 40px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, var(--button-color), #102e11);
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 255, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  animation: buttonAppear 1s forwards;
+  animation-delay: 2.5s;  /* Increased delay to start after typing effect */
+}
+
+@keyframes buttonAppear {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; visibility: visible; transform: scale(1); }
+}
+
+.portfolio-button:hover {
+  background: linear-gradient(135deg, #0d2f0f, var(--button-color));
+  box-shadow: 0 6px 25px rgba(20, 162, 20, 0.6);
+  transform: translateY(-3px);
+}
+
+.portfolio-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 15px rgba(0, 255, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 24px;
+    padding: 20px;
+  }
+
+  #second-text {
+    font-size: 20px;  /* Adjust font size for mobile */
+  }
+
+  .portfolio-button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) scale(0); }
+  100% { transform: translateY(-100vh) scale(1); }
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="first-text">Hey there, </div>
+    <div id="second-text"></div> 
+    <div> 
+        <button class="portfolio-button" id="portfolio-btn" onclick="window.location.href='/portfolio';">Visit my Portfolio</button>
+    </div>
+    <script>
+        // Typing effect
+        const text = "Welcome to my Page!";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("second-text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);  // Adjust speed here (lower number = faster)
+            } else {
+                // Show the button after typing is complete
+                document.getElementById("portfolio-btn").style.display = "block";
+            }
+        }
+
+        // Start typing effect after a short delay
+        setTimeout(typeWriter, 1000);
+
+        // Create floating particles immediately after page load
+        function createParticles() {
+            const particleCount = 75;
+            for (let i = 0; i < particleCount; i++) {
+                let particle = document.createElement('div');
+                particle.className = 'particle';
+                // Randomize the left position for a scattered effect
+                particle.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+                particle.style.bottom = `-${Math.random() * 100}px`; // Start below the viewport
+                particle.style.animationDuration = `${15 + Math.random() * 10}s`; // Random duration
+                particle.style.animationDelay = `${Math.random() * 5}s`; // Random delay
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Start particles immediately when the page loads
+        createParticles();
+    </script>
+    </script>
+</body>
+</html>

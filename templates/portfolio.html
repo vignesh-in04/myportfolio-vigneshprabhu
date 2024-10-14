@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body id="top">
+    <header>
+        <h1 style="color: rgb(5, 59, 27);">Vigneshprabhu M</h1>
+        <p>ECE Final Year Student | MIT</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2 style="color: red;">About Me</h2>
+        <p>I’m a curious and detail-oriented individual who enjoys exploring new technologies and finding practical solutions to complex problems. I’m driven by a strong work ethic, and I thrive in collaborative environments where clear communication and teamwork are key. Whether it’s learning something new or optimizing a process, I always aim for efficiency and quality in everything I do. Innovation and constant growth keep me motivated.</p>
+    </section>
+
+    <section id="education">
+        <h2 style="color: red;">Education</h2>
+        <ul>
+            <li>
+                <h3>Madras Institute of Technology, Chennai</h3>
+                <p>Pursuing Bachelor's in Electronics and Communication Engineering (2022 - 2025)</p>
+                <p>CGPA - 7.69 (till sem6)</p>
+            </li>
+            <li>
+                <h3>Nachimuthu Polytechnic College, Pollachi</h3>
+                <p>Diploma in Electrical and Electronics Engineering (2019 - 2021)</p>
+                <p>Percentage - 93.14</p>
+            </li>
+            <li>
+                <h3>Vivek Vidyalaya Matric Higher Secondary School</h3>
+                <p>SSLC (2018 - 2019)</p>
+                <p>Percentage - 83.4</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2 style="color: red;">Skills</h2>
+        <ul>
+            <li>Python</li>
+            <li>C++ basics</li>
+            <li>Java basics</li>
+            <li>HTML & CSS</li>
+            <li>SQL</li>
+            <li>AWS & Azure</li>
+            <li>Flask</li>  
+            <li>Git</li>
+            <li>Windows, Linux (Ubuntu)</li>
+            <li>Problem Solving</li>
+            <li>Effective Communication</li>
+            <li>Adaptive</li>
+            <li>Time Management</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2 style="color: red;">Projects</h2>
+        <ul>
+            <li>
+                <div class="project">
+                    <h3>Real Time Food Identifier and Nutrient Tracker</h3>
+                    <p><i>(in progress)</i></p>
+                    <p>This web application identifies South Indian dishes and provides nutritional information. Users can upload images of their meals, and the system utilizes image processing and a nutritional database to deliver real-time insights into calories, fats, proteins, and more. Built with Django, OpenCV, and MySQL, the platform aims to promote healthier eating habits through easy access to dietary information.</p>
+                </div>
+            </li>
+            <li>
+                <div class="project">
+                    <h3>Multilingual Text Translator</h3>
+                    <p><i>(Feb 2024 - Apr 2024)</i></p>
+                    <p>Developed a web application enabling translations among English, German, and Tamil. The platform offers a user-friendly interface for seamless text input and output, utilizing Azure Cognitive Services for accurate translations. Built with Flask, HTML, CSS, and JavaScript.</p>
+                </div>
+            </li>
+            <li>
+                <div class="project">
+                    <h3>Face Recognition Based Attendance System</h3>
+                    <p><i>(Aug 2023 - Nov 2023)</i></p>
+                    <p>Developed a system for automated attendance tracking using face recognition. Implemented HOG and CNN algorithms to generate 128-dimensional encodings for detected faces, matching them via Euclidean distance. Managed data in CSV format and integrated a sound alert feature for unknown face detection. Will update this project to handle database using MySQL.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="profiles">
+        <h2>Profiles</h2>
+        <ul>
+            <li><a href="https://leetcode.com/u/vigneshprabhuvp44/" target="_blank">LeetCode Profile</a></li>
+            <li><a href="https://github.com/vignesh-in04" target="_blank">GitHub Page</a></li>
+            <li><a href="https://www.linkedin.com/in/vigneshprabhu-m-007533284/" target="_blank">LinkedIn Profile</a></li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2 style="color: red;">Contact Details</Details></h2>
+        <p>Email: <a href="mailto:vigneshprabhuvp44@gmail.com">vigneshprabhuvp44@gmail.com</a></p>
+        <p>Phone number: +91 7868905920</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Vigneshprabhu</p>
+        <p>Visitor Count: {{ count }}</p>
+        <a href="/">Go back to Home</a>
+    </footer>
+    
+    <script>
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once the section is visible
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
+
+            sections.forEach(section => {
+                observer.observe(section); // Observe each section
+            });
+        });
+    </script>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</body>
+</html>
